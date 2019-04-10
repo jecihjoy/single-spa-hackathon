@@ -14,6 +14,7 @@ export class VitalsComponent implements OnInit {
       if (params.patient_uuid) {
         console.log('Fetch Vitals for patient', params.patient_uuid);
         this.vitalsService.fetchVitals(params.patient_uuid).subscribe((res: any) => {
+          console.log('Vitals', res);
           this.vitals = res.result;
         });
       }
