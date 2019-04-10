@@ -2,12 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'patientdashboard-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-patient-info',
+  templateUrl: './patient-info.component.html',
+  styleUrls: ['./patient-info.component.css']
 })
-export class AppComponent implements OnDestroy, OnInit {
-  title = 'patientdashboard';
+export class PatientInfoComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params => {
       if (params.patient_uuid) {
@@ -16,8 +15,5 @@ export class AppComponent implements OnDestroy, OnInit {
     });
   }
   constructor(private activeRoute: ActivatedRoute) {
-  }
-  ngOnDestroy() {
-    console.log('destroying patientdashboard');
   }
 }
