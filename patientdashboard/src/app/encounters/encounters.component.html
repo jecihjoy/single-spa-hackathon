@@ -1,3 +1,18 @@
-<div class="col-md-12">
-    Encounters
+<div class="encounter-list">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Encounter Date</th>
+                <th>Encounter Type</th>
+                <th>Form</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="cursor: pointer;" *ngFor="let encounter of encounters  let i = index;">
+                <td>{{encounter.encounterDatetime | date: 'MMM dd, yyyy hh:mm a'}}</td>
+                <td>{{encounter.encounterType.display}}</td>
+                <td><span *ngIf="encounter.form">{{encounter.form.name}}</span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
