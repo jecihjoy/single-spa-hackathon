@@ -14,7 +14,7 @@ export class PocHttpInteceptor implements HttpInterceptor {
       const authHeader = { Authorization: 'Basic ' + credentials };
       modifiedReq = req.clone({ setHeaders: authHeader });
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigateByUrl('/login');
     }
     return next.handle(modifiedReq).pipe(tap(event => {
       if (event instanceof HttpResponse) {

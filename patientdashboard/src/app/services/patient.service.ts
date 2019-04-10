@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Constants } from './constants';
 
 @Injectable()
 export class PatientService {
@@ -11,12 +12,10 @@ export class PatientService {
         + 'attributes,preferredAddress:(uuid,preferred,address1,address2,cityVillage,longitude,' +
         'stateProvince,latitude,country,postalCode,countyDistrict,address3,address4,address5' +
         ',address6)))';
-
-    apiURL = 'https://ngx.ampath.or.ke/amrs/ws/rest/v1/patient';
     constructor(private httpClient: HttpClient) { }
     fetchpatient(patientUuid) {
-        let url = this.apiURL;
-        url += '/' + patientUuid;
+        let url =  Constants.baseOpenmrsURL;
+        url += '/patient/' + patientUuid;
 
         const params: HttpParams = new HttpParams()
             .set('v', (this.v));

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { VitalsService } from '../services/vitals.service';
 
 @Component({
   selector: 'app-vitals',
@@ -7,14 +8,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./vitals.component.css']
 })
 export class VitalsComponent implements OnInit {
+  vitals: any;
   ngOnInit(): void {
-    this.activeRoute.params.subscribe(params => {
+    this.activeRoute.parent.params.subscribe(params => {
       if (params.patient_uuid) {
         console.log('Fetch Vitals for patient', params.patient_uuid);
+        this.vitalsService.fetchVitals(params.patient_uuid).subscribe((res: any) => {
+          this.vitals = res.result;
+        });
       }
     });
   }
-  constructor(private activeRoute: ActivatedRoute) {
+  constructor(private activeRoute: ActivatedRoute, private vitalsService: VitalsService) {
   }
 
 }
