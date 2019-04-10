@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
           if (data.authenticated) {
             console.log("auth successful");
-            //this.router.navigateByUrl('/app/users');
             this.router.navigateByUrl('/patientsearch');
           } else {
           }
