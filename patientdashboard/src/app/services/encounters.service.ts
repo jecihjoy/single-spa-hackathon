@@ -13,7 +13,7 @@ export class EncountersService {
 
         const params: HttpParams = new HttpParams()
             .set('v', (this.v))
-            .set('patient', ('ce1b2ab4-6cb6-4483-a96d-d4b26ef54f0e'));
+            .set('patient', (patientUuid));
 
         return this.httpClient.get(url, {
             params

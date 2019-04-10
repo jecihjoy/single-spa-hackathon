@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AutheticationService } from './services/authentication.service';
 
 @Component({
   selector: 'patientdashboard-root',
@@ -8,14 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnDestroy, OnInit {
   title = 'patientdashboard';
-  ngOnInit(): void {
-    this.activeRoute.params.subscribe(params => {
-      if (params.patient_uuid) {
-        console.log('Fetch Patient info for patient', params.patient_uuid);
-      }
-    });
+  constructor(private autheticationService: AutheticationService,
+              private router: Router) {
+
   }
-  constructor(private activeRoute: ActivatedRoute) {
+  ngOnInit(): void {
+    const credentials = this.autheticationService.getAuth();
+    if (!credentials) {
+      this.router.navigateByUrl('/login');
+    }
+
   }
   ngOnDestroy() {
     console.log('destroying patientdashboard');
