@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { PatientService } from './services/patient.service';
 import { VitalsService } from './services/vitals.service';
 import { EncountersService } from './services/encounters.service';
 import { PatientComponent } from './patient/patient.component';
+import { AutheticationService } from './services/authentication.service';
+import { PocHttpInteceptor } from './services/poc-http-interceptor';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,13 @@ import { PatientComponent } from './patient/patient.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/patientdashboard' }, PatientService, VitalsService, EncountersService],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/patientdashboard' },
+    PatientService, VitalsService,
+  { provide: HTTP_INTERCEPTORS, useClass: PocHttpInteceptor, multi: true },
+    EncountersService, AutheticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
