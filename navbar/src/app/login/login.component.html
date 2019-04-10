@@ -1,13 +1,24 @@
-<h3>Dummy login page</h3>
-<form class="margin-bottom-0" role="form">
-     <div class="form-group-lg">
-          <input class="form-control input-lg" id="username" type="text" #username="" placeholder="Username" />
-     </div><br /><br />
-     <div class="form-group-lg">
-          <input class="form-control input-lg" id="password" type="password" #password="" placeholder="Password" />
-     </div><br /><br />
-     <div class="login-buttons pull-right">
-          <button class="btn btn-primary btn-lg" (click)="login($event, username.value, password.value)">Log In</button>
+<div class="container">
+     <div class="row">
+          <div class="col-md-12">
+               <div class="col-md-4"></div>
+               <div class="col-md-6">
+                    <form style="margin-top: 25px" class="margin-bottom-0" role="form">
+                         <h2>Dummy login page</h2>
+                         <div class="form-group-lg">
+                              <input class="form-control input-lg" id="username" type="text" #username=""
+                                   placeholder="Username" />
+                         </div><br/><br/>
+                         <div class="form-group-lg">
+                              <input class="form-control input-lg" id="password" type="password" #password=""
+                                   placeholder="Password" />
+                         </div><br/><br/>
+                         <div class="login-buttons pull-right">
+                              <button class="btn btn-primary btn-lg"
+                                   (click)="login($event, username.value, password.value)">Log In</button>
+                         </div>
+                    </form>
+               </div>
+          </div>
      </div>
-     <div class="clear"></div>
-</form>
+</div>
