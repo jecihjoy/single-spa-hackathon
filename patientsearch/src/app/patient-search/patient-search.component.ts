@@ -121,10 +121,10 @@ export class PatientSearchComponent implements OnInit {
     this.noMatchingResults = false;
   }
 
-  public selectPatient(patient) {
-    this.router.navigateByUrl('/patientdashboard/' + patient.uuid + '/patient-info');
-    this.hideResults = true;
-  }
+  // public selectPatient(patient) {
+  //   this.router.navigateByUrl('/patientdashboard/' + patient.uuid + '/patient-info');
+  //   this.hideResults = true;
+  // }
 
   public updatePatientCount(search) {
     if (this.totalPatients > 0 && search.length > 0) {
