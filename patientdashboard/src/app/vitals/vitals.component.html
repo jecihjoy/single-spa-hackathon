@@ -1,4 +1,4 @@
-<div>
+<div class="col-md-12">
         <h4 class="component-title"><span class="fa fa-heartbeat"></span> Patient Vitals</h4>
         <div >
           <!-- <div [ngBusy]="{busy:loadingVitals,message:'Please Wait...'}"></div> -->
@@ -14,10 +14,6 @@
             <th>Oxygen Sat</th>
             <th>Height</th>
             <th>Weight</th>
-            <th *ngIf="patient && patient?.person.age >= 18 ">BMI</th>
-            <th *ngIf="patient && patient?.person.age < 18 ">Height For Age</th>
-            <th *ngIf="patient && patient?.person.age < 5 ">Weight For Height</th>
-            <th *ngIf="patient && patient?.person.age < 18 && patient?.person.age >= 5 ">BMI For Age</th>
           </tr>
           </thead>
           <tr *ngFor="let vitals of vitals; let i = index; ">

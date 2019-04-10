@@ -1,9 +1,5 @@
 <div class="row">
-    <div class="col-md-12"> Patient Dashboard</div>
-    <app-patient-banner></app-patient-banner>
-</div>
-<div class="row">
-    <div class="col-md-12">
+    <div class="col-md-2">
         <nav>
             <li>
                 <a routerLink="patient-info">
@@ -22,5 +18,8 @@
             </li>
         </nav>
     </div>
-    <router-outlet></router-outlet>
+    <div class="col-md-10">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>
